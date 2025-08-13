@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Comète de Lunark</title>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .onglets {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    .onglet {
+        background-color: #222;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .onglet:hover {
+        background-color: #555;
+    }
+    .contenu {
+        display: none;
+    }
+    .contenu.active {
+        display: block;
+    }
+    input[type="password"] {
+        margin-top: 10px;
+        padding: 5px;
+    }
+    button {
+        padding: 5px 10px;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<h1>La Comète de Lunark</h1>
+
+<div id="moderateurDiv">
+    <input type="password" id="mdp" placeholder="Mot de passe modérateur">
+    <button onclick="verifierMdp()">Valider</button>
+</div>
+
+<div class="onglets">
+    <div class="onglet" onclick="afficher('1500')">1500</div>
+    <div class="onglet" onclick="afficher('3500')">3500</div>
+    <div class="onglet" onclick="afficher('5000')">5000</div>
+    <div class="onglet" onclick="afficher('7500')">7500</div>
+    <div class="onglet" onclick="afficher('10000')">10000</div>
+    <div class="onglet" onclick="afficher('15000')">15000</div>
+    <div class="onglet" onclick="afficher('20000')">20000</div>
+    <div class="onglet" onclick="afficher('futur1')">Futur 1</div>
+    <div class="onglet" onclick="afficher('futur2')">Futur 2</div>
+    <div class="onglet" onclick="afficher('futur3')">Futur 3</div>
+    <div class="onglet" onclick="afficher('futur4')">Futur 4</div>
+    <div class="onglet" onclick="afficher('futur5')">Futur 5</div>
+    <div class="onglet" onclick="afficher('futur6')">Futur 6</div>
+    <div class="onglet" onclick="afficher('futur7')">Futur 7</div>
+</div>
+
+<div id="contenus">
+    <div id="1500" class="contenu"><h2>Dinos 1500</h2></div>
+    <div id="3500" class="contenu"><h2>Dinos 3500</h2></div>
+    <div id="5000" class="contenu"><h2>Dinos 5000</h2></div>
+    <div id="7500" class="contenu"><h2>Dinos 7500</h2></div>
+    <div id="10000" class="contenu"><h2>Dinos 10000</h2></div>
+    <div id="15000" class="contenu"><h2>Dinos 15000</h2></div>
+    <div id="20000" class="contenu"><h2>Dinos 20000</h2></div>
+    <div id="futur1" class="contenu"><h2>Futur 1</h2></div>
+    <div id="futur2" class="contenu"><h2>Futur 2</h2></div>
+    <div id="futur3" class="contenu"><h2>Futur 3</h2></div>
+    <div id="futur4" class="contenu"><h2>Futur 4</h2></div>
+    <div id="futur5" class="contenu"><h2>Futur 5</h2></div>
+    <div id="futur6" class="contenu"><h2>Futur 6</h2></div>
+    <div id="futur7" class="contenu"><h2>Futur 7</h2></div>
+</div>
+
+<script>
+let mdpCorrect = "lunark123"; // mot de passe modérateur
+function verifierMdp() {
+    let mdp = document.getElementById("mdp").value;
+    if(mdp === mdpCorrect) {
+        alert("Bienvenue modérateur !");
+        document.getElementById("moderateurDiv").style.display = "none";
+    } else {
+        alert("Mot de passe incorrect !");
+    }
+}
+
+function afficher(id) {
+    let contenus = document.querySelectorAll(".contenu");
+    contenus.forEach(c => c.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
